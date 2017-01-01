@@ -1,0 +1,63 @@
+ class Program 
+    {
+        static void Main(string[] args)
+        {
+            int age = 0;
+            string name;
+            string response;
+
+            Atm atm1 = new Atm(0, 0, 0, 2000);
+            
+            // Prompts user for information
+            Console.WriteLine("What is your name?");
+
+            name= Console.ReadLine();
+
+                
+                while (age == 0 || age <= 0)
+                {
+                    //Checks for error validation in formatting
+                    try
+                    {
+                        Console.WriteLine("For survey purposes, what is your current age?");
+                        if (age <= 0)
+                        {
+                            Console.WriteLine("Please enter a number greater than 0.");
+                        }
+                        age = int.Parse(Console.ReadLine());
+
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("The characters entered were not valid.");
+
+                        continue;
+                    }
+
+                }
+            
+
+            Console.WriteLine("Your name is " + name + " and you are " + age + " years old." + "\n");
+            atm1.Process();
+
+            // Gives user option to donate a specified amount
+            Console.WriteLine("We provide fresh water to kids in impoverished areas. Would you like to make a donation with your transaction?");
+
+            response = Console.ReadLine();
+
+            if( response == "y" || response == "yes" || response == "Yes")
+            {
+                atm1.Donate();
+                atm1.ProcessResult();
+            }
+            else if (response == "n" || response == "no" || response == "No")
+            {
+                Console.WriteLine(".. But there are kids in dire need.... well Ok.");
+                atm1.ProcessResult();
+            }
+
+
+            Console.Read();
+        }
+    }
+}
