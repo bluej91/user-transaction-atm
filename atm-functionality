@@ -1,0 +1,66 @@
+ class Atm
+    {
+        private double totalMoney = 25000;
+        private double withdraw;
+        private double deposit;
+        private double donation;
+      
+        public Atm(double take, double give, double donated, double allMoney)
+        {
+            take = withdraw;
+            give = deposit;
+            allMoney = totalMoney;
+            donation = donated;
+            
+            take = 0;
+            give = 0;
+            donated = 0;   
+        }
+        // Takes a donation input and gives feedback
+        public void Donate()
+        {
+            Console.WriteLine("How much would you like to donate? (Please enter a whole number)");
+            donation = double.Parse(Console.ReadLine());
+            if (donation != 0 && donation > 0)
+            {
+
+                totalMoney = totalMoney - donation;
+                Console.WriteLine("Thanks for your contribution!");
+            }
+        }
+
+        //Gives current account balance, and begins transaction process
+        public void Process()
+        {
+            Console.WriteLine("Account Balance: " + "$" + totalMoney);
+
+            Console.WriteLine("\n" + "How much would you like to deposit? (Please enter a whole number)");
+
+            deposit = double.Parse(Console.ReadLine());
+
+            if (deposit > 0)
+            {
+                totalMoney = totalMoney + deposit;
+            }
+            else if (deposit <= 0)
+            {
+                Console.WriteLine("You did not enter a valid amount");
+            }
+            Console.WriteLine("How much would you like to withdraw? (Please enter a whole number)");
+            withdraw = double.Parse(Console.ReadLine());
+            if (withdraw < totalMoney)
+            {
+                totalMoney = totalMoney - withdraw;
+            }
+        }
+
+        //Displays details of transaction after taking user input.
+        public void ProcessResult()
+        {
+            Console.WriteLine("Here are your transaction details." + " Thanks for banking with AmarBank");
+            Console.WriteLine("Deposited: " + "$" + deposit + " dollars");
+            Console.WriteLine("Withdrawn: " + "$" + withdraw + " dollars");
+            Console.WriteLine("Donated: " + "$" + donation + " dollars");
+            Console.WriteLine("Available Balance: " + "$" + totalMoney + " dollars");
+        }
+    }
