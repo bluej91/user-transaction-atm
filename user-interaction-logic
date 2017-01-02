@@ -10,10 +10,8 @@
             
             // Prompts user for information
             Console.WriteLine("What is your name?");
-
             name= Console.ReadLine();
-
-                
+            
                 while (age == 0 || age <= 0)
                 {
                     //Checks for error validation in formatting
@@ -30,13 +28,10 @@
                     catch (FormatException)
                     {
                         Console.WriteLine("The characters entered were not valid.");
-
                         continue;
                     }
-
                 }
             
-
             Console.WriteLine("Your name is " + name + " and you are " + age + " years old." + "\n");
             atm1.Process();
 
@@ -56,8 +51,7 @@
                 atm1.ProcessResult();
             }
 
-
             Console.Read();
         }
     }
-}
+
